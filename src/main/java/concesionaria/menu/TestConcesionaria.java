@@ -1,9 +1,8 @@
 package concesionaria.menu;
 
+import concesionaria.exception.*;
 import concesionaria.facade.ConcesionariaFacade;
 import concesionaria.model.*;
-import concesionaria.exception.*;
-import java.math.BigDecimal;
 
 public class TestConcesionaria {
     private ConcesionariaFacade concesionaria;
@@ -209,18 +208,18 @@ public class TestConcesionaria {
         
         System.out.println("\n--- Clientes registrados ---");
         for (Cliente cliente : concesionaria.getClientes()) {
-            System.out.println("- " + cliente.getNombre() + " (" + cliente.getTipo() + ")");
+            System.out.println("- " + cliente.getNombre());
         }
         
         System.out.println("\n--- Vehículos disponibles ---");
         for (Vehiculo vehiculo : concesionaria.getVehiculos()) {
             System.out.println("- " + vehiculo.getMarca() + " " + vehiculo.getModelo() + 
-                             " - $" + vehiculo.getPrecio());
+                             " - $" + vehiculo.getPrecioBase());
         }
         
         System.out.println("\n--- Vendedores activos ---");
         for (Vendedor vendedor : concesionaria.getVendedores()) {
-            System.out.println("- " + vendedor.getNombre() + " (" + vendedor.getArea() + ")");
+            System.out.println("- " + vendedor.getNombre());
         }
         
         System.out.println("\n--- Pedidos procesados ---");
