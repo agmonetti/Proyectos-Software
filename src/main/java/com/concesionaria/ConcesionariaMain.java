@@ -5,9 +5,11 @@ import com.concesionaria.strategy.*;
 import com.concesionaria.observer.*;
 import com.concesionaria.util.*;
 
+
 public class ConcesionariaMain {
     public static void main(String[] args) {
         // Crear cliente
+        //clie
         Cliente cliente = new Cliente("Juan", "Pérez", "12345678", "juan@email.com", "555-1234");
 
         // Crear vehículo
