@@ -90,12 +90,6 @@ java concesionaria.ConcesionariaMain
 - Gestión de configuraciones adicionales
 - Seguimiento de estados del pedido
 
-### Tipos de Vehículos Soportados
-- **Auto**: Impuestos 21% nacional + 5% provincial general + 1% provincial adicional (total 27%)
-- **Camioneta**: Impuestos 10% nacional + 5% provincial general + 2% provincial adicional (total 17%)
-- **Moto**: Impuestos 5% provincial general + 1% provincial adicional (total 6%)
-- **Camión**: Impuestos 5% provincial general + 2% provincial adicional (total 7%)
-
 ### Estados del Pedido
 1. **Ventas**: Estado inicial
 2. **Cobranzas**: Procesamiento de pago
@@ -120,22 +114,7 @@ El sistema crea automáticamente un pedido de ejemplo y lo procesa a través de 
 
 ## Funcionamiento de Testeos
 
-El proyecto incluye una clase de pruebas automáticas llamada `TestConcesionaria` que verifica el correcto funcionamiento de las principales funcionalidades del sistema. Al ejecutar los tests, se realizan las siguientes comprobaciones:
-
-- **Creación de pedidos válidos**: Se prueba que se puedan crear pedidos correctamente con datos válidos.
-- **Validación de clientes y vehículos**: Se verifica que el sistema rechace pedidos con clientes o vehículos inexistentes.
-- **Patrón Strategy (formas de pago)**: Se crean pedidos usando distintas formas de pago para asegurar que el cálculo y procesamiento es correcto.
-- **Patrón State (cambio de estados del pedido)**: Se procesan pedidos para comprobar la transición entre los distintos estados.
-- **Patrón Observer (notificaciones)**: Se valida que las notificaciones a las áreas correspondientes se realicen al cambiar el estado de un pedido.
-- **Manejo de excepciones**: Se comprueba que el sistema arroje las excepciones adecuadas ante situaciones como clientes duplicados.
-- **Búsquedas**: Se testean las búsquedas de clientes, vehículos y vendedores tanto existentes como inexistentes.
-
-Al finalizar, se muestra un resumen con la cantidad de pruebas exitosas y el porcentaje de éxito. Si todas las pruebas pasan, se indica que el sistema funciona correctamente.
+El proyecto incluye una clase de pruebas automáticas llamada `TestConcesionaria` que verifica el correcto funcionamiento de las principales funcionalidades del sistema.
 
 Para ejecutar los tests, simplemente ejecuta el método correspondiente desde el menú principal o desde la clase `TestConcesionaria`.
-
-## Archivos `.class`
-
-Cuando compilas los archivos `.java`, el compilador de Java genera archivos `.class` en el mismo directorio o en el directorio de salida configurado. Estos archivos contienen el bytecode que la Máquina Virtual de Java (JVM) ejecuta.  
-**No incluyas los archivos `.class` en la estructura del proyecto ni en el control de versiones.**
 
