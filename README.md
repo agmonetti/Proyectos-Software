@@ -3,11 +3,14 @@
 ## Descripción
 Proyecto realizado con mis compañeros para la materia POO. Sistema de gestión de pedidos para una concesionaria de vehículos que implementa varios patrones de diseño:
 
+- **Facade Pattern**: Para centralizar y simplificar el acceso a la lógica principal del sistema mediante una fachada (`ConcesionariaFacade`).
 - **State Pattern**: Para manejar los diferentes estados del pedido (Ventas, Cobranzas, Impuestos, Embarque, Logística, Entrega)
 - **Strategy Pattern**: Para calcular impuestos según el tipo de vehículo y formas de pago
 - **Observer Pattern**: Para notificar a diferentes áreas cuando cambia el estado del pedido
 
 ## Estructura del Proyecto
+
+> **Nota:** La estructura solo muestra archivos fuente relevantes. Los archivos `.class` generados por la compilación **no deben incluirse** en la estructura ni en el control de versiones.
 
 ```
 src/main/java/concesionaria/
@@ -15,6 +18,11 @@ src/main/java/concesionaria/
 ├── exception/                      # Excepciones personalizadas
 │   ├── DuplicateException.java
 │   └── ProcessingException.java
+├── facade/                         # Fachada del sistema
+│   └── ConcesionariaFacade.java
+├── menu/                           # Menús visuales y pruebas
+│   ├── MenuPrincipal.java
+│   └── TestConcesionaria.java
 ├── model/                          # Clases del modelo
 │   ├── Auto.java
 │   ├── Camion.java
@@ -45,6 +53,13 @@ src/main/java/concesionaria/
 │   ├── PagoContado.java
 │   ├── PagoTarjeta.java
 │   └── PagoTransferencia.java
+├── validation/                     # Validadores
+│   ├── ValidadorCliente.java
+│   ├── ValidadorDatosFacturacion.java
+│   ├── ValidadorFormaPago.java
+│   ├── ValidadorPedido.java
+│   ├── ValidadorVehiculo.java
+│   └── ValidadorVendedor.java
 └── util/                           # Clases de utilidad
     ├── CambioEstado.java
     ├── ConfiguracionAdicional.java
@@ -59,6 +74,9 @@ cd src/main/java
 
 # Compilar
 javac concesionaria/ConcesionariaMain.java
+
+#Errores de encoding
+javac -encoding UTF-8 concesionaria/ConcesionariaMain.java
 
 # Ejecutar
 java concesionaria.ConcesionariaMain
@@ -100,7 +118,24 @@ El sistema crea automáticamente un pedido de ejemplo y lo procesa a través de 
 - Cálculos de impuestos y totales
 
 
+## Funcionamiento de Testeos
+
+El proyecto incluye una clase de pruebas automáticas llamada `TestConcesionaria` que verifica el correcto funcionamiento de las principales funcionalidades del sistema. Al ejecutar los tests, se realizan las siguientes comprobaciones:
+
+- **Creación de pedidos válidos**: Se prueba que se puedan crear pedidos correctamente con datos válidos.
+- **Validación de clientes y vehículos**: Se verifica que el sistema rechace pedidos con clientes o vehículos inexistentes.
+- **Patrón Strategy (formas de pago)**: Se crean pedidos usando distintas formas de pago para asegurar que el cálculo y procesamiento es correcto.
+- **Patrón State (cambio de estados del pedido)**: Se procesan pedidos para comprobar la transición entre los distintos estados.
+- **Patrón Observer (notificaciones)**: Se valida que las notificaciones a las áreas correspondientes se realicen al cambiar el estado de un pedido.
+- **Manejo de excepciones**: Se comprueba que el sistema arroje las excepciones adecuadas ante situaciones como clientes duplicados.
+- **Búsquedas**: Se testean las búsquedas de clientes, vehículos y vendedores tanto existentes como inexistentes.
+
+Al finalizar, se muestra un resumen con la cantidad de pruebas exitosas y el porcentaje de éxito. Si todas las pruebas pasan, se indica que el sistema funciona correctamente.
+
+Para ejecutar los tests, simplemente ejecuta el método correspondiente desde el menú principal o desde la clase `TestConcesionaria`.
+
 ## Archivos `.class`
 
 Cuando compilas los archivos `.java`, el compilador de Java genera archivos `.class` en el mismo directorio o en el directorio de salida configurado. Estos archivos contienen el bytecode que la Máquina Virtual de Java (JVM) ejecuta.  
+**No incluyas los archivos `.class` en la estructura del proyecto ni en el control de versiones.**
 
